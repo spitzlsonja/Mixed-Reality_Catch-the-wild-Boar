@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
+    path: Assets/Scenes/ArcheryScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   m_configObjects:
-    com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d0a00d3bedd23ac4e822693611b102a9,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 80cb9c8bf6463444086af83ee350c1bc,
+      type: 2}
