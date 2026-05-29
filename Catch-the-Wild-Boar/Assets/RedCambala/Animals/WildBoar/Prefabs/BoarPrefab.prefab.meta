@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9fc0d4010bbf28b4594072e72b8655ab
-DefaultImporter:
+guid: 6dbb202767a616f4084f458b0e582192
+PrefabImporter:
   externalObjects: {}
   userData: 
   assetBundleName: 
@@ -10,5 +10,5 @@ AssetOrigin:
   productId: 262076
   packageName: Wild boar
   packageVersion: 1.0
-  assetPath: Assets/Rope Bridge/Rope Bridge 3D/Scene/DemoScene.unity
+  assetPath: Assets/RedCambala/Animals/WildBoar/Prefabs/BoarPrefab.prefab
   uploadId: 620418

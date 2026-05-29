@@ -1,7 +1,11 @@
 fileFormatVersion: 2
-guid: 9fc0d4010bbf28b4594072e72b8655ab
-DefaultImporter:
+guid: 0f7b26efa759ec24c930dda80b97ff8f
+MonoImporter:
   externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
   userData: 
   assetBundleName: 
   assetBundleVariant: 
@@ -10,5 +14,5 @@ AssetOrigin:
   productId: 262076
   packageName: Wild boar
   packageVersion: 1.0
-  assetPath: Assets/Rope Bridge/Rope Bridge 3D/Scene/DemoScene.unity
+  assetPath: Assets/RedCambala/Animals/WildBoar/Scripts/RotateObject.cs
   uploadId: 620418
