@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class ScoreDisplay : MonoBehaviour
 {
-    public TMP_Text scoreText;
+    public TMP_Text startText;
+    public TMP_Text hudText;
+
+    public GameObject startBoard;
 
     private int points = 0;
     private int arrows = 10;
@@ -11,6 +14,11 @@ public class ScoreDisplay : MonoBehaviour
     void Start()
     {
         UpdateDisplay();
+
+        if (startBoard != null)
+        {
+            Invoke(nameof(HideStartBoard), 4f);
+        }
     }
 
     public void AddPoint()
@@ -42,6 +50,21 @@ public class ScoreDisplay : MonoBehaviour
 
     private void UpdateDisplay()
     {
-        scoreText.text = "Punkte: " + points + "\nPfeile: " + arrows;
+        string text = "Punkte: " + points + "\nPfeile: " + arrows;
+
+        if (startText != null)
+        {
+            startText.text = text;
+        }
+
+        if (hudText != null)
+        {
+            hudText.text = text;
+        }
+    }
+
+    private void HideStartBoard()
+    {
+        startBoard.SetActive(false);
     }
 }
