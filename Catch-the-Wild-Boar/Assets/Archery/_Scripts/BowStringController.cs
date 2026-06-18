@@ -65,6 +65,7 @@ public class BowStringController : MonoBehaviour
 
     private void ResetBowString(SelectExitEventArgs arg0)
     {
+        Debug.Log("ResetBowString aufgerufen! Strength: " + strength);
         OnBowReleased?.Invoke(strength);
         strength = 0;
         previousStrength = 0;
@@ -81,6 +82,7 @@ public class BowStringController : MonoBehaviour
 
     private void PrepareBowString(SelectEnterEventArgs arg0)
     {
+        Debug.Log("🏹 PrepareBowString aufgerufen!");
         interactor = arg0.interactorObject.transform;
         OnBowPulled?.Invoke();
     }
@@ -89,6 +91,7 @@ public class BowStringController : MonoBehaviour
     {
         if (interactor != null)
         {
+            Debug.Log("Update mit Interactor!");
             //convert bow string mid point position to the local space of the MidPoint
             Vector3 midPointLocalSpace = 
                 midPointParent.InverseTransformPoint(midPointGrabObject.position); // localPosition
