@@ -58,14 +58,14 @@ public class BowStringController : MonoBehaviour
 
     private void ResetBowString(SelectExitEventArgs arg0)
     {
+        if(interactor == null) return; // dann wird der Arrow nur 1x aufgerufen
+    
         OnBowReleased?.Invoke(strength);
         strength = 0;
-        
         interactor = null;
         midPointGrabObject.localPosition = Vector3.zero;
         midPointVisualObject.localPosition = Vector3.zero;
         bowStringRenderer.CreateString(null);
-
     }
 
     private void PrepareBowString(SelectEnterEventArgs arg0)
