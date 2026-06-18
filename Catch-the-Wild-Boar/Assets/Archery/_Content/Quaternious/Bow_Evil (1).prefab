@@ -644,7 +644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000048219381070490
 Transform:
   m_ObjectHideFlags: 0
@@ -1233,6 +1233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a910cc0b196d540bb4a9833b62d2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BowStringController
+  arrowController: {fileID: 0}
   bowStringRenderer: {fileID: 6982259904967574132}
   midPointGrabObject: {fileID: 1976011958108626259}
   midPointVisualObject: {fileID: 4000048219381070490}

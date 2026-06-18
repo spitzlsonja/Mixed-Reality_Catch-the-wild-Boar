@@ -10,6 +10,9 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 public class BowStringController : MonoBehaviour
 {
     [SerializeField]
+    private ArrowController arrowController;
+    
+    [SerializeField]
     private BowString bowStringRenderer;
 
     private XRGrabInteractable interactable;
@@ -35,6 +38,22 @@ public class BowStringController : MonoBehaviour
     {
         interactable.selectEntered.AddListener(PrepareBowString);
         interactable.selectExited.AddListener(ResetBowString);
+    
+        // Wenn ArrowController nicht zugewiesen ist, versuche ihn zu finden
+        if(arrowController == null)
+        {
+            arrowController = GetComponent<ArrowController>();
+        }
+    
+        if(arrowController != null)
+        {
+            OnBowPulled.AddListener(arrowController.PrepareArrow);
+            OnBowReleased.AddListener(arrowController.ReleaseArrow);
+        }
+        else
+        {
+            Debug.LogError("ArrowController konnte nicht gefunden werden!");
+        }
     }
 
     private void ResetBowString(SelectExitEventArgs arg0)
