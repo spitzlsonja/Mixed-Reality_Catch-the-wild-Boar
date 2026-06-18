@@ -38,6 +38,15 @@ public class BowStringController : MonoBehaviour
     private void Awake()
     {
         interactable = midPointGrabObject.GetComponent<XRGrabInteractable>();
+    
+        if(interactable == null)
+        {
+            Debug.LogError("XRGrabInteractable NICHT GEFUNDEN!");
+        }
+        else
+        {
+            Debug.Log("XRGrabInteractable gefunden!");
+        }
     }
 
     private void Start()
