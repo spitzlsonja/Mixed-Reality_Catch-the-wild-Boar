@@ -38,15 +38,16 @@ public class BowStringController : MonoBehaviour
     {
         interactable.selectEntered.AddListener(PrepareBowString);
         interactable.selectExited.AddListener(ResetBowString);
-    
-        // Wenn ArrowController nicht zugewiesen ist, versuche ihn zu finden
+
+        // Suche ArrowController im ganzen Scene Hierarchy
         if(arrowController == null)
         {
-            arrowController = GetComponent<ArrowController>();
+            arrowController = FindObjectOfType<ArrowController>();
         }
-    
+
         if(arrowController != null)
         {
+            Debug.Log("ArrowController gefunden!");
             OnBowPulled.AddListener(arrowController.PrepareArrow);
             OnBowReleased.AddListener(arrowController.ReleaseArrow);
         }
