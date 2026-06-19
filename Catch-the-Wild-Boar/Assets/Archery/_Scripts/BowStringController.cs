@@ -37,6 +37,11 @@ public class BowStringController : MonoBehaviour
 
     private void Awake()
     {
+        // Suche ArrowController im ganzen Scene Hierarchy
+        if(arrowController == null)
+        {
+            arrowController = FindObjectOfType<ArrowController>();
+        }
         interactable = midPointGrabObject.GetComponent<XRGrabInteractable>();
     
         if(interactable == null)
@@ -54,11 +59,7 @@ public class BowStringController : MonoBehaviour
         interactable.selectEntered.AddListener(PrepareBowString);
         interactable.selectExited.AddListener(ResetBowString);
 
-        // Suche ArrowController im ganzen Scene Hierarchy
-        if(arrowController == null)
-        {
-            arrowController = FindObjectOfType<ArrowController>();
-        }
+
 
         if(arrowController != null)
         {

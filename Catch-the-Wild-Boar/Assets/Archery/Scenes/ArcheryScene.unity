@@ -2910,6 +2910,18 @@ Transform:
   - {fileID: 985715840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2126079670 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8451335016053870006, guid: 26dfe3176a7e9ac4296e41c568e53fa9,
+    type: 3}
+  m_PrefabInstance: {fileID: 7580245839231598721}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300add58b75ecd249a8c265691ec2ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArrowController
 --- !u!1 &2127858857
 GameObject:
   m_ObjectHideFlags: 0
@@ -3284,6 +3296,11 @@ PrefabInstance:
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 1070501744}
+    - target: {fileID: 5302576567125287432, guid: 26dfe3176a7e9ac4296e41c568e53fa9,
+        type: 3}
+      propertyPath: arrowController
+      value: 
+      objectReference: {fileID: 2126079670}
     - target: {fileID: 7313731630524774211, guid: 26dfe3176a7e9ac4296e41c568e53fa9,
         type: 3}
       propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
