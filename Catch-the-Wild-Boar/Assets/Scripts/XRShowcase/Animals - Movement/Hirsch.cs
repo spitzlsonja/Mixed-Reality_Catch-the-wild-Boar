@@ -2,36 +2,39 @@ using UnityEngine;
 
 public class Hirsch : MonoBehaviour
 {
-    public Transform head; // Kopf oder Hals vom Hirsch hier reinziehen
+    public Transform head;
 
-    public float headMoveSpeed = 1.5f;
-    public float headDownAngle = 35f;
-    public float bodyMoveAmount = 0.03f;
+    public float eatSpeed = 1.4f;
+    public float headAngle = 30f;
+    public float lookAroundAngle = 15f;
 
     private Quaternion startHeadRotation;
-    private Vector3 startPosition;
+    private float timer;
 
     void Start()
     {
-        startPosition = transform.position;
-
         if (head != null)
         {
             startHeadRotation = head.localRotation;
         }
+
+        timer = Random.Range(3f, 6f);
     }
 
     void Update()
     {
-        // Körper bewegt sich ganz leicht auf und ab
-        float bodyY = Mathf.Sin(Time.time * headMoveSpeed) * bodyMoveAmount;
-        transform.position = startPosition + new Vector3(0, bodyY, 0);
+        if (head == null) return;
 
-        // Kopf bewegt sich nach unten und oben, als würde er Gras fressen
-        if (head != null)
+        timer -= Time.deltaTime;
+
+        float eatMovement = Mathf.Sin(Time.time * eatSpeed) * 8f + headAngle;
+        float lookMovement = Mathf.Sin(Time.time * 0.7f) * lookAroundAngle;
+
+        head.localRotation = startHeadRotation * Quaternion.Euler(eatMovement, lookMovement, 0);
+
+        if (timer <= 0f)
         {
-            float angle = Mathf.Sin(Time.time * headMoveSpeed) * headDownAngle;
-            head.localRotation = startHeadRotation * Quaternion.Euler(angle, 0, 0);
+            timer = Random.Range(3f, 6f);
         }
     }
 }
