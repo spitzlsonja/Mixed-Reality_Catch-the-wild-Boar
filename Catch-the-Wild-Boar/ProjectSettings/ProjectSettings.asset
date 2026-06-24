@@ -932,11 +932,11 @@ PlayerSettings:
   captureStartupLogs: {}
   activeInputHandler: 1
   windowsGamepadBackendHint: 0
-  cloudProjectId: 9e505ed2-fa2c-46e5-87d7-61e313a55f31
+  cloudProjectId: 9c837a85-b183-4290-87d5-7e990fabb4c6
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Catch-the-Wild-Boar 2026-06-02_16-27-27
+  organizationId: s2410892028mmdgsgve
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
