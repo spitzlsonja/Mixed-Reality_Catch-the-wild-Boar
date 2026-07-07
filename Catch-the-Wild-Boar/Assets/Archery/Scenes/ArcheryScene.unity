@@ -1819,7 +1819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1144442799}
   m_Layer: 0
-  m_Name: AttachPoint
+  m_Name: AttachPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3175,7 +3175,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2127858858}
   m_Layer: 0
-  m_Name: AttachPoint
+  m_Name: AttachPointRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3478,6 +3478,11 @@ PrefabInstance:
       objectReference: {fileID: 540063309}
     - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
+      propertyPath: leftHandInteractor
+      value: 
+      objectReference: {fileID: 1144442799}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
       propertyPath: bowGrabInteractable
       value: 
       objectReference: {fileID: 1351797234}
@@ -3486,6 +3491,11 @@ PrefabInstance:
       propertyPath: rightHandController
       value: 
       objectReference: {fileID: 1560014286}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: rightHandInteractor
+      value: 
+      objectReference: {fileID: 2127858858}
     - target: {fileID: 3754825195874458377, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: m_LocalPosition.x
