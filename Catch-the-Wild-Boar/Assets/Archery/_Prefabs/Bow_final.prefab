@@ -794,6 +794,7 @@ GameObject:
   - component: {fileID: 48766009910847742}
   - component: {fileID: 7011757190522268209}
   - component: {fileID: 4222817888592357194}
+  - component: {fileID: -8032181792105564314}
   m_Layer: 3
   m_Name: Bow_final
   m_TagString: Untagged
@@ -1101,6 +1102,24 @@ MonoBehaviour:
   arrowSpawnPoint: {fileID: 1392031572562732942}
   arrowMaxSpeed: 10
   bowReleaseAudioSource: {fileID: 8404873502946784491}
+--- !u!114 &-8032181792105564314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5159831654075328207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6eabf12e58f47468b742c1d6110060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BowHandSideController
+  bowGrabInteractable: {fileID: 0}
+  arrowController: {fileID: 0}
+  leftHandController: {fileID: 0}
+  rightHandController: {fileID: 0}
+  spawnPointRight: {fileID: 0}
+  spawnPointLeft: {fileID: 0}
 --- !u!1 &5978348190765283340
 GameObject:
   m_ObjectHideFlags: 0

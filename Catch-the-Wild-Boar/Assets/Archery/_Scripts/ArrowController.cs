@@ -36,4 +36,9 @@ public class ArrowController : MonoBehaviour
             scoreManager.AddShot();
         }
     }
+    
+    public void SetSpawnPoint(Transform newSpawnPoint)
+    {
+        arrowSpawnPoint = newSpawnPoint.gameObject;
+    }
 }
