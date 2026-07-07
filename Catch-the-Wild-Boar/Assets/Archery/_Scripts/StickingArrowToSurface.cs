@@ -26,7 +26,18 @@ public class StickingArrowToSurface : MonoBehaviour
             arrow.transform.parent = collision.collider.attachedRigidbody.transform;
         }
 
-        collision.collider.GetComponent<IHittable>()?.GetHit();
+        IHittable hittable = collision.collider.GetComponent<IHittable>();
+
+        if (hittable != null)
+        {
+            hittable.GetHit();
+
+            ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+            if (scoreManager != null)
+            {
+                scoreManager.AddHit();
+            }
+        }
 
         Destroy(gameObject);
 
