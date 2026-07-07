@@ -1879,18 +1879,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 3429030568713398791}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1351797234 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3105230664204428716, guid: bf6a70d5b8237524694c82896d09a6a4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3429030568713398791}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1351797232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 --- !u!114 &1351797237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3458,6 +3446,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 540063309}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 1560014286}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
       propertyPath: spawnPointLeft
       value: 
       objectReference: {fileID: 1828165676}
@@ -3485,7 +3488,7 @@ PrefabInstance:
         type: 3}
       propertyPath: bowGrabInteractable
       value: 
-      objectReference: {fileID: 1351797234}
+      objectReference: {fileID: 0}
     - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: rightHandController
