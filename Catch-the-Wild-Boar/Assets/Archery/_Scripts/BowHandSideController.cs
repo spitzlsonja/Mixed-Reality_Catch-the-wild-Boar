@@ -42,19 +42,40 @@ public class BowHandSideController : MonoBehaviour
     {
         Transform interactorTransform = args.interactorObject.transform;
 
+        Debug.Log($"Bogen gegriffen von: {interactorTransform.name} (Pfad: {GetFullPath(interactorTransform)})");
+
         bool grabbedWithLeftHand = leftHandController != null &&
                                    interactorTransform.IsChildOf(leftHandController);
 
         bool grabbedWithRightHand = rightHandController != null &&
                                     interactorTransform.IsChildOf(rightHandController);
 
+        Debug.Log($"Links erkannt: {grabbedWithLeftHand} | Rechts erkannt: {grabbedWithRightHand}");
+
         if (grabbedWithRightHand)
         {
             arrowController.SetSpawnPoint(spawnPointLeft);
+            Debug.Log("→ Spawn Point auf LINKS gesetzt");
         }
         else if (grabbedWithLeftHand)
         {
             arrowController.SetSpawnPoint(spawnPointRight);
+            Debug.Log("→ Spawn Point auf RECHTS gesetzt");
         }
+        else
+        {
+            Debug.LogWarning("→ Weder linke noch rechte Hand erkannt!");
+        }
+    }
+
+    private string GetFullPath(Transform t)
+    {
+        string path = t.name;
+        while (t.parent != null)
+        {
+            t = t.parent;
+            path = t.name + "/" + path;
+        }
+        return path;
     }
 }
