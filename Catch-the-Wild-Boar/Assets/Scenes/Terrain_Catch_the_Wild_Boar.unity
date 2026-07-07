@@ -38358,11 +38358,11 @@ BoxCollider:
     m_Bits: 0
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.0675907, z: 1.0494602}
+  m_Center: {x: -9.913164e-12, y: -0.0040721893, z: 0.041748118}
 --- !u!23 &1751802085
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -38449,7 +38449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ded8f3c224869d428138822077c4dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGameOnHit
-  gameStartManager: {fileID: 484010111}
 --- !u!1001 &1753135753
 PrefabInstance:
   m_ObjectHideFlags: 0
