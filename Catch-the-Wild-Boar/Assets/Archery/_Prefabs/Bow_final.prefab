@@ -1116,8 +1116,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BowHandSideController
   bowGrabInteractable: {fileID: 0}
   arrowController: {fileID: 0}
-  leftHandController: {fileID: 0}
-  rightHandController: {fileID: 0}
+  leftHandInteractor: {fileID: 0}
+  rightHandInteractor: {fileID: 0}
   spawnPointRight: {fileID: 0}
   spawnPointLeft: {fileID: 0}
 --- !u!1 &5978348190765283340
