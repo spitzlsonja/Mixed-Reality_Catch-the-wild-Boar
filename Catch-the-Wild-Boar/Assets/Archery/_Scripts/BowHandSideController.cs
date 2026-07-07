@@ -40,12 +40,14 @@ public class BowHandSideController : MonoBehaviour
         bool isLeft =
             interactor == leftHand ||
             interactor.IsChildOf(leftHand) ||
-            leftHand.IsChildOf(interactor);
+            leftHand.IsChildOf(interactor) ||
+            GetFullPath(interactor).ToLower().Contains("left");
 
         bool isRight =
             interactor == rightHand ||
             interactor.IsChildOf(rightHand) ||
-            rightHand.IsChildOf(interactor);
+            rightHand.IsChildOf(interactor) ||
+            GetFullPath(interactor).ToLower().Contains("right");
 
         if (isRight)
         {
