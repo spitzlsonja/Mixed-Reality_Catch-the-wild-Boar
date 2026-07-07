@@ -11047,6 +11047,7 @@ GameObject:
   - component: {fileID: 460185940}
   - component: {fileID: 460185939}
   - component: {fileID: 460185938}
+  - component: {fileID: 460185942}
   m_Layer: 0
   m_Name: XR Origin
   m_TagString: Untagged
@@ -11187,6 +11188,31 @@ MonoBehaviour:
   m_CameraFloorOffsetObject: {fileID: 1708505056}
   m_RequestedTrackingOriginMode: 0
   m_CameraYOffset: 0
+--- !u!143 &460185942
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 460185936}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.8
+  m_Radius: 0.25
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1 &462046453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1148613061152340, guid: eded051879df4c147b9010199d240258,
@@ -34426,19 +34452,19 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1591903913}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 2}
-  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
-  m_ConstrainProportionsScale: 0
+  m_LocalRotation: {x: -0, y: 0.97812456, z: -0, w: 0.20802017}
+  m_LocalPosition: {x: 0, y: 0, z: 177.48}
+  m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 970402821}
   - {fileID: 1942629147}
   - {fileID: 612838765}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 155.987, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 1.6}
+  m_AnchoredPosition: {x: 149.09, y: 21.92}
   m_SizeDelta: {x: 354, y: 487}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1591922265 stripped
@@ -35398,7 +35424,7 @@ MonoBehaviour:
   m_TrackingStateInput:
     m_UseReference: 0
     m_Action:
-      m_Name: 
+      m_Name: Tracking State Input
       m_Type: 0
       m_ExpectedControlType: 
       m_Id: c3e6e250-9e84-4c32-9fd5-8b07ed144c60
