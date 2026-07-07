@@ -47,7 +47,7 @@ public class StickingArrowToSurface : MonoBehaviour
         arrow.transform.SetParent(collision.transform, true);
 
         // Trefferlogik
-        IHittable hittable = collision.collider.GetComponent<IHittable>();
+        IHittable hittable = collision.collider.GetComponentInParent<IHittable>();
 
         if (hittable != null)
         {
