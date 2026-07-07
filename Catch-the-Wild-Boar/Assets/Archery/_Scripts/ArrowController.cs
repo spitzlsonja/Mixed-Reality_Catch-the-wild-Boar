@@ -22,6 +22,8 @@ public class ArrowController : MonoBehaviour
     {
         bowReleaseAudioSource.Play();
         midPointVisual.SetActive(false);
+        
+        Debug.Log($"Spawne Pfeil bei: {arrowSpawnPoint.name} | Weltposition: {arrowSpawnPoint.transform.position}");
 
         GameObject arrow = Instantiate(arrowPrefab);
         arrow.transform.position = arrowSpawnPoint.transform.position;
