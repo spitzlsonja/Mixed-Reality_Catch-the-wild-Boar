@@ -13,10 +13,8 @@ public class StickingArrowToSurface : MonoBehaviour
         if (hasHit) return;
         hasHit = true;
 
-        // Ersten echten Trefferpunkt holen
         ContactPoint contact = collision.contacts[0];
 
-        // Bewegung stoppen
         if (rb != null)
         {
             rb.linearVelocity = Vector3.zero;
@@ -27,30 +25,22 @@ public class StickingArrowToSurface : MonoBehaviour
 
         if (myCollider != null)
         {
-            myCollider.isTrigger = true;
+            myCollider.enabled = false;
         }
 
-        // Steckenden Pfeil erstellen
         GameObject arrow = Instantiate(stickingArrow);
 
-        // Pfeil genau am Trefferpunkt platzieren
-        arrow.transform.position = contact.point;
-
-        // Pfeilrichtung übernehmen
         arrow.transform.rotation = transform.rotation;
-
-        // Ganz leicht aus der Oberfläche heraussetzen,
-        // damit er nicht im Collider flackert
+        arrow.transform.position = contact.point;
         arrow.transform.position -= transform.forward * 0.05f;
 
-        // An getroffenes Objekt hängen
-        arrow.transform.SetParent(collision.transform, true);
-
-        // Trefferlogik
         IHittable hittable = collision.collider.GetComponentInParent<IHittable>();
 
         if (hittable != null)
         {
+            // Bei Tieren/Zielen soll der Pfeil mit dem Objekt mitbewegen
+            arrow.transform.SetParent(collision.transform, true);
+
             hittable.GetHit();
 
             ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
@@ -58,6 +48,13 @@ public class StickingArrowToSurface : MonoBehaviour
             {
                 scoreManager.AddHit();
             }
+        }
+        else
+        {
+            // Bei BÃ¤umen/Weltobjekten nicht parenten,
+            // damit skalierte BÃ¤ume den Pfeil nicht verzerren
+            arrow.transform.SetParent(null);
+            arrow.transform.localScale = Vector3.one;
         }
 
         Destroy(gameObject);

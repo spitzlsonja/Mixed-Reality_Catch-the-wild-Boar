@@ -3566,6 +3566,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4222817888592357194, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: spawnPointLeft
+      value: 
+      objectReference: {fileID: 1828165676}
+    - target: {fileID: 4222817888592357194, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: spawnPointRight
+      value: 
+      objectReference: {fileID: 1403757654}
+    - target: {fileID: 4222817888592357194, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: bowGrabInteractable
+      value: 
+      objectReference: {fileID: 661952855}
     - target: {fileID: 5159831654075328207, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: m_Name

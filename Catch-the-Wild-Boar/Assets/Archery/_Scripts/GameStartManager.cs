@@ -21,14 +21,14 @@ public class GameStartManager : MonoBehaviour
             introBoard.SetActive(true);
 
         // Spielobjekte am Anfang deaktivieren
-        if (bow != null)
-            bow.SetActive(false);
+        //if (bow != null)
+            //bow.SetActive(false);
 
-        if (targets != null)
-            targets.SetActive(false);
+        //if (targets != null)
+            //targets.SetActive(false);
 
-        if (animals != null)
-            animals.SetActive(false);
+        //if (animals != null)
+            //animals.SetActive(false);
     }
 
     public void StartGame()
