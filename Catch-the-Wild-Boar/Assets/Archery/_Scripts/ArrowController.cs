@@ -20,94 +20,92 @@ public class ArrowController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource bowReleaseAudioSource;
 
+    private Transform currentSpawnPoint;
+
+    private void Awake()
+    {
+        currentSpawnPoint = spawnPointRight;
+
+        Debug.Log("ArrowController Awake", this);
+        Debug.Log("spawnPointRight: " + spawnPointRight, this);
+        Debug.Log("spawnPointLeft: " + spawnPointLeft, this);
+        Debug.Log("currentSpawnPoint Startwert: " + currentSpawnPoint, this);
+    }
+
     public void PrepareArrow()
     {
-        midPointVisual.SetActive(true);
+        if (midPointVisual != null)
+        {
+            midPointVisual.SetActive(true);
+        }
     }
 
     public void ReleaseArrow(float strength)
     {
-        bowReleaseAudioSource.Play();
-        midPointVisual.SetActive(false);
+        if (bowReleaseAudioSource != null)
+        {
+            bowReleaseAudioSource.Play();
+        }
 
-        Transform currentSpawnPoint = GetCorrectSpawnPoint();
+        if (midPointVisual != null)
+        {
+            midPointVisual.SetActive(false);
+        }
 
-        Debug.Log($"Spawne Pfeil bei: {currentSpawnPoint.name} | Weltposition: {currentSpawnPoint.position}");
+        if (arrowPrefab == null)
+        {
+            Debug.LogError("arrowPrefab ist NULL! Bitte im Inspector zuweisen.", this);
+            return;
+        }
+
+        if (currentSpawnPoint == null)
+        {
+            Debug.LogWarning("currentSpawnPoint war NULL. Verwende spawnPointRight als Fallback.", this);
+            currentSpawnPoint = spawnPointRight;
+        }
+
+        if (currentSpawnPoint == null)
+        {
+            Debug.LogError("Kein SpawnPoint vorhanden!", this);
+            return;
+        }
+
+        Debug.Log("Spawne Pfeil bei: " + currentSpawnPoint.name + 
+                  " | Weltposition: " + currentSpawnPoint.position, this);
 
         GameObject arrow = Instantiate(arrowPrefab);
         arrow.transform.position = currentSpawnPoint.position;
         arrow.transform.rotation = midPointVisual.transform.rotation;
 
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
-        rb.AddForce(midPointVisual.transform.forward * strength * arrowMaxSpeed, ForceMode.Impulse);
+
+        if (rb != null)
+        {
+            rb.AddForce(midPointVisual.transform.forward * strength * arrowMaxSpeed, ForceMode.Impulse);
+        }
+        else
+        {
+            Debug.LogError("Der Pfeil hat keinen Rigidbody!", arrow);
+        }
 
         ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+
         if (scoreManager != null)
         {
             scoreManager.AddShot();
         }
     }
 
-    private Transform GetCorrectSpawnPoint()
-    {
-        if (bowGrabInteractable == null || bowGrabInteractable.firstInteractorSelecting == null)
-        {
-            return spawnPointRight;
-        }
-
-        Transform interactorTransform = bowGrabInteractable.firstInteractorSelecting.transform;
-
-        if (IsRightHand(interactorTransform))
-        {
-            // Bogen wird rechts gehalten → Pfeil soll links spawnen
-            return spawnPointLeft;
-        }
-
-        if (IsLeftHand(interactorTransform))
-        {
-            // Bogen wird links gehalten → Pfeil soll rechts spawnen
-            return spawnPointRight;
-        }
-
-        return spawnPointRight;
-    }
-
-    private bool IsRightHand(Transform t)
-    {
-        while (t != null)
-        {
-            string name = t.name.ToLower();
-
-            if (name.Contains("right"))
-            {
-                return true;
-            }
-
-            t = t.parent;
-        }
-
-        return false;
-    }
-
-    private bool IsLeftHand(Transform t)
-    {
-        while (t != null)
-        {
-            string name = t.name.ToLower();
-
-            if (name.Contains("left"))
-            {
-                return true;
-            }
-
-            t = t.parent;
-        }
-
-        return false;
-    }
-
     public void SetSpawnPoint(Transform newSpawnPoint)
     {
-        // bleibt nur drinnen, falls irgendwo noch ein altes Event darauf zugreift
+        if (newSpawnPoint == null)
+        {
+            Debug.LogError("SetSpawnPoint wurde mit NULL aufgerufen!", this);
+            return;
+        }
+
+        currentSpawnPoint = newSpawnPoint;
+
+        Debug.Log("ArrowController SpawnPoint geändert auf: " + currentSpawnPoint.name, this);
     }
 }
