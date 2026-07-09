@@ -81,6 +81,11 @@ public class ArrowController : MonoBehaviour
             midPointVisual.transform.rotation
         );
 
+        if (arrow.GetComponent<ArrowMarker>() == null)
+        {
+            arrow.AddComponent<ArrowMarker>();
+        }
+
         Transform arrowTip = FindChildByName(arrow.transform, "ArrowTip");
 
         if (arrowTip != null)

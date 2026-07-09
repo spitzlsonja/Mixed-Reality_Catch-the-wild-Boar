@@ -57,6 +57,11 @@ public class StickingArrowToSurface : MonoBehaviour
 
         GameObject arrow = Instantiate(stickingArrow);
 
+        if (arrow.GetComponent<ArrowMarker>() == null)
+        {
+            arrow.AddComponent<ArrowMarker>();
+        }
+
         // Rotation vom fliegenden Pfeil übernehmen
         arrow.transform.rotation = transform.rotation;
 

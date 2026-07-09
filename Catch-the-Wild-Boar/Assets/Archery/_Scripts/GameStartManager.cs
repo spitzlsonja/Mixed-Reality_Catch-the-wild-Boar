@@ -51,6 +51,8 @@ public class GameStartManager : MonoBehaviour
 
     private void StartOrRestartGame()
     {
+        ClearOldArrows();
+
         gameRunning = true;
 
         Debug.Log("Spiel startet / restartet!");
@@ -91,5 +93,15 @@ public class GameStartManager : MonoBehaviour
     public void SetGameFinished()
     {
         gameRunning = false;
+    }
+
+    private void ClearOldArrows()
+    {
+        ArrowMarker[] oldArrows = FindObjectsByType<ArrowMarker>(FindObjectsSortMode.None);
+
+        foreach (ArrowMarker oldArrow in oldArrows)
+        {
+            Destroy(oldArrow.gameObject);
+        }
     }
 }
