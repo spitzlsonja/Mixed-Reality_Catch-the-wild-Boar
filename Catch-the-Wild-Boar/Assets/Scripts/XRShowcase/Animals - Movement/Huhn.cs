@@ -8,12 +8,14 @@ public class Huhn : MonoBehaviour
     public float peckAngle = 35f;
     public float bodyTurnAngle = 8f;
 
+    private Vector3 startPosition;
+    private Quaternion startRotation;
     private Quaternion startHeadRotation;
-    private Quaternion startBodyRotation;
 
     void Start()
     {
-        startBodyRotation = transform.localRotation;
+        startPosition = transform.position;
+        startRotation = transform.rotation;
 
         if (head != null)
         {
@@ -23,9 +25,9 @@ public class Huhn : MonoBehaviour
 
     void Update()
     {
-        // Körper dreht sich minimal links/rechts
+        // Körper dreht sich minimal links/rechts, bleibt aber am Platz
         float bodyY = Mathf.Sin(Time.time * 0.8f) * bodyTurnAngle;
-        transform.localRotation = startBodyRotation * Quaternion.Euler(0, bodyY, 0);
+        transform.rotation = startRotation * Quaternion.Euler(0, bodyY, 0);
 
         // Kopf pickt nach unten
         if (head != null)
@@ -33,5 +35,10 @@ public class Huhn : MonoBehaviour
             float angle = Mathf.Abs(Mathf.Sin(Time.time * peckSpeed)) * peckAngle;
             head.localRotation = startHeadRotation * Quaternion.Euler(angle, 0, 0);
         }
+    }
+
+    void LateUpdate()
+    {
+        transform.position = startPosition;
     }
 }
