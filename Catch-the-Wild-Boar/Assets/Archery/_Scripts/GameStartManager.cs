@@ -10,43 +10,48 @@ public class GameStartManager : MonoBehaviour
     public GameObject targets;
     public GameObject animals;
 
+    [Header("Timer")]
+    public GameTimerManager gameTimerManager;
+
     private bool gameStarted = false;
 
     private void Start()
     {
         gameStarted = false;
 
-        // Intro anzeigen
         if (introBoard != null)
             introBoard.SetActive(true);
 
-        // Spielobjekte am Anfang deaktivieren
-        //if (bow != null)
-            //bow.SetActive(false);
+        if (targets != null)
+            targets.SetActive(false);
 
-        //if (targets != null)
-            //targets.SetActive(false);
-
-        //if (animals != null)
-            //animals.SetActive(false);
+        if (animals != null)
+            animals.SetActive(false);
     }
 
     public void StartGame()
     {
+        if (gameStarted)
+            return;
+
         gameStarted = true;
 
-        // Intro ausblenden
         if (introBoard != null)
             introBoard.SetActive(false);
-
-        // Spiel starten
-       // if (bow != null)
-           // bow.SetActive(true);
 
         if (targets != null)
             targets.SetActive(true);
 
         if (animals != null)
             animals.SetActive(true);
+
+        if (gameTimerManager != null)
+        {
+            gameTimerManager.StartTimer();
+        }
+        else
+        {
+            Debug.LogWarning("GameTimerManager fehlt im GameStartManager!");
+        }
     }
 }
