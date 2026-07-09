@@ -13951,6 +13951,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b31572ee3a21245ad7d7a3bc63b2a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AnimalHit
+--- !u!4 &591686236 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5686441813376982399, guid: bf6a70d5b8237524694c82896d09a6a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081858820}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &593608123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33643,6 +33649,12 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300014, guid: 4735160b42a3154428094dff59ef0f4e, type: 3}
+--- !u!4 &1516475888 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7466391999272652572, guid: bf6a70d5b8237524694c82896d09a6a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081858820}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1517007347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38601,7 +38613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ded8f3c224869d428138822077c4dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGameOnHit
-  gameStartManager: {fileID: 0}
+  gameStartManager: {fileID: 484010111}
 --- !u!1001 &1753135753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40681,6 +40693,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &1826055655 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2690176389932966340, guid: 7832487f435a7ac419a06a6395e38ef6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1334943500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 --- !u!1001 &1829281949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45834,6 +45858,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4222817888592357194, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: spawnPointLeft
+      value: 
+      objectReference: {fileID: 1516475888}
+    - target: {fileID: 4222817888592357194, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: spawnPointRight
+      value: 
+      objectReference: {fileID: 591686236}
+    - target: {fileID: 4222817888592357194, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: bowGrabInteractable
+      value: 
+      objectReference: {fileID: 1826055655}
     - target: {fileID: 5159831654075328207, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: m_Name
