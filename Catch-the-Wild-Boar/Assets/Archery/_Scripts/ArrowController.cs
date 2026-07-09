@@ -73,9 +73,25 @@ public class ArrowController : MonoBehaviour
         Debug.Log("Spawne Pfeil bei: " + currentSpawnPoint.name + 
                   " | Weltposition: " + currentSpawnPoint.position, this);
 
-        GameObject arrow = Instantiate(arrowPrefab);
-        arrow.transform.position = currentSpawnPoint.position;
-        arrow.transform.rotation = midPointVisual.transform.rotation;
+        GameObject arrow = Instantiate(
+            arrowPrefab,
+            currentSpawnPoint.position,
+            midPointVisual.transform.rotation
+        );
+
+        Transform arrowTip = FindChildByName(arrow.transform, "ArrowTip");
+
+        if (arrowTip != null)
+        {
+            Vector3 offset = currentSpawnPoint.position - arrowTip.position;
+            arrow.transform.position += offset;
+
+            Debug.Log("ArrowTip wurde exakt auf SpawnPoint gesetzt: " + currentSpawnPoint.name, this);
+        }
+        else
+        {
+            Debug.LogWarning("ArrowTip wurde im Pfeil-Prefab nicht gefunden!", arrow);
+        }
 
         Rigidbody rb = arrow.GetComponent<Rigidbody>();
 
@@ -107,5 +123,25 @@ public class ArrowController : MonoBehaviour
         currentSpawnPoint = newSpawnPoint;
 
         Debug.Log("ArrowController SpawnPoint geändert auf: " + currentSpawnPoint.name, this);
+    }
+    
+    private Transform FindChildByName(Transform parent, string childName)
+    {
+        foreach (Transform child in parent)
+        {
+            if (child.name == childName)
+            {
+                return child;
+            }
+
+            Transform found = FindChildByName(child, childName);
+
+            if (found != null)
+            {
+                return found;
+            }
+        }
+
+        return null;
     }
 }
