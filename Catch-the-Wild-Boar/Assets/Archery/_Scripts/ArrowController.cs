@@ -20,6 +20,8 @@ public class ArrowController : MonoBehaviour
     [Header("Audio")]
     [SerializeField] private AudioSource bowReleaseAudioSource;
 
+    public Transform VisualArrow;
+
     private Transform currentSpawnPoint;
 
     private void Awake()
@@ -121,6 +123,7 @@ public class ArrowController : MonoBehaviour
         }
 
         currentSpawnPoint = newSpawnPoint;
+        VisualArrow.position = currentSpawnPoint.position;
 
         Debug.Log("ArrowController SpawnPoint geändert auf: " + currentSpawnPoint.name, this);
     }
