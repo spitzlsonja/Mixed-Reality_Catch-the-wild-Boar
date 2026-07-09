@@ -3475,7 +3475,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPointLeft
       value: 
-      objectReference: {fileID: 1828165676}
+      objectReference: {fileID: 1403757654}
     - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: arrowController
@@ -3485,7 +3485,7 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnPointRight
       value: 
-      objectReference: {fileID: 1403757654}
+      objectReference: {fileID: 1828165676}
     - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: leftHandController

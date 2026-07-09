@@ -89,7 +89,7 @@ public class GameTimerManager : MonoBehaviour
         {
             if (currentScoreText != null)
             {
-                endScoreText.text = "Zeit vorbei!\n" + currentScoreText.text;
+                endScoreText.text = "Deine Zeit ist abgelaufen!\n\n" + currentScoreText.text + "\n\nUm das Spiel neu zu Starten schieﬂe auf Restart.\n";
             }
             else
             {
