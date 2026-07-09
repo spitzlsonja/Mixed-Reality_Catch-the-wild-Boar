@@ -38601,7 +38601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ded8f3c224869d428138822077c4dd6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGameOnHit
-  gameStartManager: {fileID: 484010111}
+  gameStartManager: {fileID: 0}
 --- !u!1001 &1753135753
 PrefabInstance:
   m_ObjectHideFlags: 0
