@@ -34,14 +34,13 @@ public class Schmetterling : MonoBehaviour
 
     void Update()
     {
-        // schwebt nur auf der Stelle
+        // Schwebt nur leicht auf der Stelle
         float y = Mathf.Sin(Time.time * hoverSpeed) * hoverHeight;
         transform.position = startPosition + new Vector3(0, y, 0);
 
-        // dreht sich leicht
+        // Dreht sich leicht, wandert aber nicht weg
         transform.rotation = startRotation * Quaternion.Euler(0, Mathf.Sin(Time.time * 0.6f) * rotateSpeed, 0);
 
-        // Flügel schlagen
         if (leftWing != null && rightWing != null)
         {
             float angle = Mathf.Sin(Time.time * wingSpeed) * wingAngle;

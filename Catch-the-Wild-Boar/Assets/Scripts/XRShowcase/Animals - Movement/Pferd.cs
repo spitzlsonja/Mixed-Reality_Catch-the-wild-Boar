@@ -8,11 +8,17 @@ public class Pferd : MonoBehaviour
     public float headAngle = 25f;
     public float liftHeadEverySeconds = 5f;
 
+    private Vector3 startPosition;
+    private Quaternion startRotation;
     private Quaternion startHeadRotation;
+
     private float timer;
 
     void Start()
     {
+        startPosition = transform.position;
+        startRotation = transform.rotation;
+
         if (head != null)
         {
             startHeadRotation = head.localRotation;
@@ -23,28 +29,33 @@ public class Pferd : MonoBehaviour
 
     void Update()
     {
-        if (head == null) return;
-
-        timer -= Time.deltaTime;
-
-        float angle;
-
-        if (timer > 1.5f)
+        if (head != null)
         {
-            // Kopf unten, frisst Gras
-            angle = Mathf.Sin(Time.time * eatSpeed) * 8f + headAngle;
-        }
-        else
-        {
-            // Kopf kurz heben
-            angle = Mathf.Sin(Time.time * eatSpeed) * 5f - 10f;
-        }
+            timer -= Time.deltaTime;
 
-        head.localRotation = startHeadRotation * Quaternion.Euler(angle, 0, 0);
+            float angle;
 
-        if (timer <= 0f)
-        {
-            timer = Random.Range(4f, liftHeadEverySeconds);
+            if (timer > 1.5f)
+            {
+                angle = Mathf.Sin(Time.time * eatSpeed) * 8f + headAngle;
+            }
+            else
+            {
+                angle = Mathf.Sin(Time.time * eatSpeed) * 5f - 10f;
+            }
+
+            head.localRotation = startHeadRotation * Quaternion.Euler(angle, 0, 0);
+
+            if (timer <= 0f)
+            {
+                timer = Random.Range(4f, liftHeadEverySeconds);
+            }
         }
+    }
+
+    void LateUpdate()
+    {
+        transform.position = startPosition;
+        transform.rotation = startRotation;
     }
 }
