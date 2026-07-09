@@ -47005,6 +47005,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 865815461}
     m_Modifications:
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: leftHand
+      value: 
+      objectReference: {fileID: 146615157}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: rightHand
+      value: 
+      objectReference: {fileID: 1872899223}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: spawnPointLeft
+      value: 
+      objectReference: {fileID: 1516475888}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: arrowController
+      value: 
+      objectReference: {fileID: 2081858822}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: spawnPointRight
+      value: 
+      objectReference: {fileID: 591686236}
+    - target: {fileID: -8032181792105564314, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: bowGrabInteractable
+      value: 
+      objectReference: {fileID: 2081858823}
     - target: {fileID: 3754825195874458377, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -47086,6 +47116,30 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2081858820}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2081858822 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4222817888592357194, guid: bf6a70d5b8237524694c82896d09a6a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081858820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300add58b75ecd249a8c265691ec2ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArrowController
+--- !u!114 &2081858823 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 48766009910847742, guid: bf6a70d5b8237524694c82896d09a6a4,
+    type: 3}
+  m_PrefabInstance: {fileID: 2081858820}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
 --- !u!1 &2082088277
 GameObject:
   m_ObjectHideFlags: 0
