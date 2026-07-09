@@ -29751,10 +29751,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6625824937595335895, guid: 7832487f435a7ac419a06a6395e38ef6,
+        type: 3}
+      propertyPath: spawnPointLeft
+      value: 
+      objectReference: {fileID: 1516475888}
+    - target: {fileID: 6625824937595335895, guid: 7832487f435a7ac419a06a6395e38ef6,
+        type: 3}
+      propertyPath: spawnPointRight
+      value: 
+      objectReference: {fileID: 591686236}
+    - target: {fileID: 6625824937595335895, guid: 7832487f435a7ac419a06a6395e38ef6,
+        type: 3}
+      propertyPath: bowGrabInteractable
+      value: 
+      objectReference: {fileID: 1826055655}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2108321781672949931, guid: 7832487f435a7ac419a06a6395e38ef6,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1826055656}
   m_SourcePrefab: {fileID: 100100000, guid: 7832487f435a7ac419a06a6395e38ef6, type: 3}
 --- !u!4 &1334943501 stripped
 Transform:
@@ -29762,6 +29781,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1334943500}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1334943502 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2108321781672949931, guid: 7832487f435a7ac419a06a6395e38ef6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1334943500}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1334943503 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6625824937595335895, guid: 7832487f435a7ac419a06a6395e38ef6,
+    type: 3}
+  m_PrefabInstance: {fileID: 1334943500}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334943502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 300add58b75ecd249a8c265691ec2ec9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArrowController
 --- !u!1001 &1336415352
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41841,12 +41878,30 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 1334943500}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1334943502}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.XR.Interaction.Toolkit::UnityEngine.XR.Interaction.Toolkit.Interactables.XRGrabInteractable
+--- !u!114 &1826055656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334943502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b6eabf12e58f47468b742c1d6110060, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BowHandSideController
+  bowGrabInteractable: {fileID: 1826055655}
+  arrowController: {fileID: 1334943503}
+  leftHand: {fileID: 146615157}
+  rightHand: {fileID: 1872899223}
+  spawnPointRight: {fileID: 591686236}
+  spawnPointLeft: {fileID: 1516475888}
 --- !u!1001 &1829281949
 PrefabInstance:
   m_ObjectHideFlags: 0
