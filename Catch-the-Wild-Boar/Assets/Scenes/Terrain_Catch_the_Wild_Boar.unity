@@ -12591,6 +12591,26 @@ PrefabInstance:
       propertyPath: rightHand
       value: 
       objectReference: {fileID: 1872899223}
+    - target: {fileID: 48766009910847742, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_MovementType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 48766009910847742, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_ThrowOnDetach
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 48766009910847742, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_SmoothPosition
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 48766009910847742, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_SmoothRotation
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3754825195874458377, guid: bf6a70d5b8237524694c82896d09a6a4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12645,6 +12665,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Bow_final
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218020073740522248, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218020073740522248, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_Interpolate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9218020073740522248, guid: bf6a70d5b8237524694c82896d09a6a4,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32275,7 +32310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0940fe38e797aef45be47fa69c6f8a8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameTimerManager
-  gameDuration: 5
+  gameDuration: 120
   timerText: {fileID: 300515461}
   endBoard: {fileID: 1400556095}
   endScoreText: {fileID: 223712373}
