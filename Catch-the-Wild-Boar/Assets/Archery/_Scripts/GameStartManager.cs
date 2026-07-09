@@ -21,12 +21,6 @@ public class GameStartManager : MonoBehaviour
 
         if (introBoard != null)
             introBoard.SetActive(true);
-
-        if (targets != null)
-            targets.SetActive(false);
-
-        if (animals != null)
-            animals.SetActive(false);
     }
 
     public void StartGame()
@@ -35,6 +29,8 @@ public class GameStartManager : MonoBehaviour
             return;
 
         gameStarted = true;
+
+        Debug.Log("StartGame wurde ausgeführt!");
 
         if (introBoard != null)
             introBoard.SetActive(false);
@@ -51,7 +47,7 @@ public class GameStartManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("GameTimerManager fehlt im GameStartManager!");
+            Debug.LogWarning("GameTimerManager ist im GameStartManager NICHT eingetragen!");
         }
     }
 }
