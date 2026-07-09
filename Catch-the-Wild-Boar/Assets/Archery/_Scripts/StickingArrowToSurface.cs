@@ -6,6 +6,12 @@ public class StickingArrowToSurface : MonoBehaviour
     [SerializeField] private SphereCollider myCollider;
     [SerializeField] private GameObject stickingArrow;
 
+    [Header("Optional: Pfeilspitze")]
+    [SerializeField] private Transform arrowTip;
+
+    [Header("Einstellung")]
+    [SerializeField] private float surfaceOffset = 0.05f;
+
     private bool hasHit = false;
 
     private void OnCollisionEnter(Collision collision)
@@ -30,17 +36,31 @@ public class StickingArrowToSurface : MonoBehaviour
 
         GameObject arrow = Instantiate(stickingArrow);
 
+        // Rotation vom fliegenden Pfeil übernehmen
         arrow.transform.rotation = transform.rotation;
-        arrow.transform.position = contact.point;
-        arrow.transform.position -= transform.forward * 0.05f;
 
+        // Pfeil platzieren
+        if (arrowTip != null)
+        {
+            Vector3 tipOffset = arrowTip.position - transform.position;
+            arrow.transform.position = contact.point - tipOffset;
+        }
+        else
+        {
+            arrow.transform.position = contact.point - transform.forward * surfaceOffset;
+        }
+
+        // Wichtig: NICHT parenten, damit keine Verzerrung durch skalierte Bäume entsteht
+        arrow.transform.SetParent(null);
+
+        // Scale vom Prefab beibehalten
+        arrow.transform.localScale = stickingArrow.transform.localScale;
+
+        // Trefferlogik
         IHittable hittable = collision.collider.GetComponentInParent<IHittable>();
 
         if (hittable != null)
         {
-            // Bei Tieren/Zielen soll der Pfeil mit dem Objekt mitbewegen
-            arrow.transform.SetParent(collision.transform, true);
-
             hittable.GetHit();
 
             ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
@@ -48,13 +68,10 @@ public class StickingArrowToSurface : MonoBehaviour
             {
                 scoreManager.AddHit();
             }
-        }
-        else
-        {
-            // Bei Bäumen/Weltobjekten nicht parenten,
-            // damit skalierte Bäume den Pfeil nicht verzerren
-            arrow.transform.SetParent(null);
-            arrow.transform.localScale = Vector3.one;
+
+            // Pfeil folgt dem getroffenen Körperteil, ohne Child zu werden
+            FollowHitTarget follow = arrow.AddComponent<FollowHitTarget>();
+            follow.Setup(collision.transform);
         }
 
         Destroy(gameObject);
