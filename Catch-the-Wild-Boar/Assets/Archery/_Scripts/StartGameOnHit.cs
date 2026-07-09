@@ -4,25 +4,29 @@ public class StartGameOnHit : MonoBehaviour
 {
     public GameStartManager gameStartManager;
 
-    private bool alreadyStarted = false;
+    [Header("Ist das der Restart Button?")]
+    public bool isRestartButton = false;
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("StartHitBox getroffen von: " + collision.gameObject.name);
-
-        if (alreadyStarted)
+        if (!collision.gameObject.CompareTag("Arrow"))
             return;
 
-        alreadyStarted = true;
+        Debug.Log("Button getroffen von Pfeil: " + collision.gameObject.name);
 
-        if (gameStartManager != null)
+        if (gameStartManager == null)
         {
-            Debug.Log("Spiel startet!");
-            gameStartManager.StartGame();
+            Debug.LogWarning("GameStartManager fehlt!");
+            return;
+        }
+
+        if (isRestartButton)
+        {
+            gameStartManager.RestartGame();
         }
         else
         {
-            Debug.LogWarning("GameStartManager fehlt!");
+            gameStartManager.StartGame();
         }
     }
 }

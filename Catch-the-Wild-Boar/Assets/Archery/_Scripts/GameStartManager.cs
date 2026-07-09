@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class GameStartManager : MonoBehaviour
 {
-    [Header("Intro UI")]
+    [Header("Boards")]
     public GameObject introBoard;
+    public GameObject endBoard;
 
     [Header("Game Objects")]
     public GameObject bow;
@@ -13,33 +14,59 @@ public class GameStartManager : MonoBehaviour
     [Header("Timer")]
     public GameTimerManager gameTimerManager;
 
-    private bool gameStarted = false;
+    private bool gameRunning = false;
 
     private void Start()
     {
-        gameStarted = false;
+        gameRunning = false;
 
         if (introBoard != null)
             introBoard.SetActive(true);
+
+        if (endBoard != null)
+            endBoard.SetActive(false);
+
+        if (targets != null)
+            targets.SetActive(false);
+
+        if (animals != null)
+            animals.SetActive(false);
     }
 
     public void StartGame()
     {
-        if (gameStarted)
-            return;
+        StartOrRestartGame();
+    }
 
-        gameStarted = true;
+    public void RestartGame()
+    {
+        StartOrRestartGame();
+    }
 
-        Debug.Log("StartGame wurde ausgeführt!");
+    private void StartOrRestartGame()
+    {
+        gameRunning = true;
+
+        Debug.Log("Spiel startet / restartet!");
 
         if (introBoard != null)
             introBoard.SetActive(false);
+
+        if (endBoard != null)
+            endBoard.SetActive(false);
 
         if (targets != null)
             targets.SetActive(true);
 
         if (animals != null)
             animals.SetActive(true);
+
+        // Score zurücksetzen
+        ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+        if (scoreManager != null)
+        {
+            scoreManager.SendMessage("ResetScore", SendMessageOptions.DontRequireReceiver);
+        }
 
         if (gameTimerManager != null)
         {
@@ -49,5 +76,10 @@ public class GameStartManager : MonoBehaviour
         {
             Debug.LogWarning("GameTimerManager ist im GameStartManager NICHT eingetragen!");
         }
+    }
+
+    public void SetGameFinished()
+    {
+        gameRunning = false;
     }
 }

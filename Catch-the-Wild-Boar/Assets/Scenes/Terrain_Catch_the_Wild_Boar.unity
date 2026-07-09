@@ -12291,6 +12291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameStartManager
   introBoard: {fileID: 727781385}
+  endBoard: {fileID: 1400556095}
   bow: {fileID: 865815460}
   targets: {fileID: 296725764}
   animals: {fileID: 1650793838}
@@ -15014,6 +15015,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGameOnHit
   gameStartManager: {fileID: 484010111}
+  isRestartButton: 1
 --- !u!65 &611192913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -32152,6 +32154,7 @@ MonoBehaviour:
   currentScoreText: {fileID: 2056177564}
   targets: {fileID: 296725764}
   animals: {fileID: 1650793838}
+  gameStartManager: {fileID: 484010111}
 --- !u!4 &1409656704
 Transform:
   m_ObjectHideFlags: 0
@@ -36509,7 +36512,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: START
+  m_text: RESTART
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -39752,6 +39755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGameOnHit
   gameStartManager: {fileID: 484010111}
+  isRestartButton: 0
 --- !u!1001 &1753135753
 PrefabInstance:
   m_ObjectHideFlags: 0

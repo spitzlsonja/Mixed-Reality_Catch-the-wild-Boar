@@ -18,6 +18,9 @@ public class GameTimerManager : MonoBehaviour
     public GameObject targets;
     public GameObject animals;
 
+    [Header("Game Start Manager")]
+    public GameStartManager gameStartManager;
+
     private float timeLeft;
     private bool timerRunning = false;
 
@@ -96,6 +99,9 @@ public class GameTimerManager : MonoBehaviour
                 endScoreText.text = "Zeit vorbei!";
             }
         }
+        if (gameStartManager != null)
+            gameStartManager.SetGameFinished();
+
     }
 
     private void UpdateTimerText()
