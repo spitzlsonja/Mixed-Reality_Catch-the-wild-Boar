@@ -40,8 +40,8 @@ public class GameStartManager : MonoBehaviour
             introBoard.SetActive(false);
 
         // Spiel starten
-        if (bow != null)
-            bow.SetActive(true);
+       // if (bow != null)
+           // bow.SetActive(true);
 
         if (targets != null)
             targets.SetActive(true);

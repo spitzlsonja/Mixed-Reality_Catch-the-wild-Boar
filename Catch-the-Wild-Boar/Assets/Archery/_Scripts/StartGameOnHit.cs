@@ -8,18 +8,21 @@ public class StartGameOnHit : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("StartHitBox getroffen von: " + collision.gameObject.name);
+
         if (alreadyStarted)
             return;
 
-        // Prüft, ob wirklich ein Pfeil getroffen hat
-        if (collision.gameObject.GetComponent<StickingArrowToSurface>() != null)
-        {
-            alreadyStarted = true;
+        alreadyStarted = true;
 
-            if (gameStartManager != null)
-            {
-                gameStartManager.StartGame();
-            }
+        if (gameStartManager != null)
+        {
+            Debug.Log("Spiel startet!");
+            gameStartManager.StartGame();
+        }
+        else
+        {
+            Debug.LogWarning("GameStartManager fehlt!");
         }
     }
 }
