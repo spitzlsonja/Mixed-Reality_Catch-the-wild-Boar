@@ -16,11 +16,6 @@ public class GameStartManager : MonoBehaviour
 
     private bool gameRunning = false;
 
-    public bool IsGameRunning()
-    {
-        return gameRunning;
-    }
-
 
     private void Start()
     {
@@ -37,6 +32,11 @@ public class GameStartManager : MonoBehaviour
 
         if (animals != null)
             animals.SetActive(false);
+    }
+
+    public bool IsGameRunning()
+    {
+        return gameRunning;
     }
 
     public void StartGame()
@@ -71,7 +71,11 @@ public class GameStartManager : MonoBehaviour
         ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
         if (scoreManager != null)
         {
-            scoreManager.SendMessage("ResetScore", SendMessageOptions.DontRequireReceiver);
+            scoreManager.ResetScore();
+        }
+        else
+        {
+            Debug.LogWarning("ScoreManager wurde nicht gefunden!");
         }
 
         if (gameTimerManager != null)
