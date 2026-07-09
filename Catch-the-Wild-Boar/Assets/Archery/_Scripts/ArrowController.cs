@@ -106,11 +106,16 @@ public class ArrowController : MonoBehaviour
             Debug.LogError("Der Pfeil hat keinen Rigidbody!", arrow);
         }
 
-        ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+        GameStartManager gameStartManager = FindFirstObjectByType<GameStartManager>();
 
-        if (scoreManager != null)
+        if (gameStartManager != null && gameStartManager.IsGameRunning())
         {
-            scoreManager.AddShot();
+            ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+
+            if (scoreManager != null)
+            {
+                scoreManager.AddShot();
+            }
         }
     }
 

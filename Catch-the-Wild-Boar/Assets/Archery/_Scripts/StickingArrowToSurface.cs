@@ -57,16 +57,25 @@ public class StickingArrowToSurface : MonoBehaviour
         arrow.transform.localScale = stickingArrow.transform.localScale;
 
         // Trefferlogik
+        bool isStartOrRestartButton = collision.collider.GetComponentInParent<StartGameOnHit>() != null;
+
+        GameStartManager gameStartManager = FindFirstObjectByType<GameStartManager>();
+        bool gameIsRunning = gameStartManager != null && gameStartManager.IsGameRunning();
+
         IHittable hittable = collision.collider.GetComponentInParent<IHittable>();
 
         if (hittable != null)
         {
             hittable.GetHit();
 
-            ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
-            if (scoreManager != null)
+            if (gameIsRunning && !isStartOrRestartButton)
             {
-                scoreManager.AddHit();
+                ScoreManager scoreManager = FindFirstObjectByType<ScoreManager>();
+
+                if (scoreManager != null)
+                {
+                    scoreManager.AddHit();
+                }
             }
 
             // Pfeil folgt dem getroffenen Körperteil, ohne Child zu werden

@@ -16,6 +16,12 @@ public class GameStartManager : MonoBehaviour
 
     private bool gameRunning = false;
 
+    public bool IsGameRunning()
+    {
+        return gameRunning;
+    }
+
+
     private void Start()
     {
         gameRunning = false;
