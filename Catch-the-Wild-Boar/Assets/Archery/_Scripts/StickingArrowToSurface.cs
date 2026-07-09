@@ -19,6 +19,27 @@ public class StickingArrowToSurface : MonoBehaviour
         if (hasHit) return;
         hasHit = true;
 
+        bool hitStartOrRestartButton = collision.collider.GetComponentInParent<StartGameOnHit>() != null;
+
+        if (hitStartOrRestartButton)
+        {
+            if (rb != null)
+            {
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
+                rb.isKinematic = true;
+                rb.useGravity = false;
+            }
+
+            if (myCollider != null)
+            {
+                myCollider.enabled = false;
+            }
+
+            Destroy(gameObject);
+            return;
+        }
+
         ContactPoint contact = collision.contacts[0];
 
         if (rb != null)
