@@ -1,15 +1,22 @@
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public TextMeshProUGUI scoreText;
+    [Header("Score Anzeige")]
+    public TMP_Text scoreText;
 
-    private int shots = 0;
     private int hits = 0;
+    private int shots = 0;
 
     private void Start()
     {
+        ResetScore();
+    }
+
+    public void AddHit()
+    {
+        hits++;
         UpdateScoreText();
     }
 
@@ -19,14 +26,18 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
-    public void AddHit()
+    public void ResetScore()
     {
-        hits++;
+        hits = 0;
+        shots = 0;
         UpdateScoreText();
     }
 
     private void UpdateScoreText()
     {
-        scoreText.text = "Schüsse: " + shots + "\nTreffer: " + hits;
+        if (scoreText != null)
+        {
+            scoreText.text = "Treffer: " + hits + "\nSchüsse: " + shots;
+        }
     }
 }
